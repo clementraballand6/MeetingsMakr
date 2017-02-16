@@ -1,0 +1,24 @@
+{
+  "name": "meetingsmakr-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "live": "npm run serve & npm run watch & npm run bs",
+    "serve": "nodemon srv/server.js --ignore app",
+    "watch": "watchify app/src/index.js -o app/src/bundle.js -v --debug",
+    "bs": "browser-sync start --config bs-config.js",
+    "install-tools": "npm i nodemon -g & npm i watchify -g & npm i browser-sync -g",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clement R",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "path": "^0.12.7"
+  }
+}
