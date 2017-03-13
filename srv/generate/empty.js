@@ -1,5 +1,5 @@
 var sql = require('./../mysql');
-var emptySQL = "TRUNCATE TABLE meetingsmakr.club; TRUNCATE TABLE meetingsmakr.club_user; TRUNCATE TABLE meetingsmakr.event; TRUNCATE TABLE meetingsmakr.event_club; TRUNCATE TABLE meetingsmakr.event_member; TRUNCATE TABLE meetingsmakr.member; TRUNCATE TABLE meetingsmakr.member_club; TRUNCATE TABLE meetingsmakr.user;";
+var emptySQL = "TRUNCATE TABLE club; TRUNCATE TABLE club_user; TRUNCATE TABLE event; TRUNCATE TABLE event_club; TRUNCATE TABLE event_member; TRUNCATE TABLE member; TRUNCATE TABLE member_club; TRUNCATE TABLE user;";
 var queries = emptySQL.split(';');
 
 sql.query("SET FOREIGN_KEY_CHECKS=0", function (error, results, fields) {
