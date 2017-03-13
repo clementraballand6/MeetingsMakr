@@ -2,3 +2,4 @@ node_modules
 meetingsMakr.iml
 .idea
 app/src/bundle.js
+*-debug.*
