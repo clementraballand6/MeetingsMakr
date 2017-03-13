@@ -1,22 +1,103 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-ng-app="app" data-ng-controller="AppCtrl as appCtrl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello</title>
+    <title>{{ $root.current.name }}</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 </head>
-<body data-ng-app="app" data-ng-controller="HomeCtrl as homeCtrl">
+<body>
 
-<div data-ng-repeat="item in homeCtrl.list">
-    <p>{{item.name}}</p>
-    <p>{{item.date}}</p>
+<div class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="#">Project name</a><a class="navbar-toggle"
+                                                                                       data-toggle="collapse"
+                                                                                       data-target=".navbar-collapse">
+            <span class="glyphicon glyphicon-bar"></span>
+            <span class="glyphicon glyphicon-bar"></span>
+            <span class="glyphicon glyphicon-bar"></span>
+        </a>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a>
+                </li>
+                <li><a href="#about">About</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+            </ul>
+
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
 </div>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar-nav-fixed affix">
+                <div class="well">
+                    <ul class="nav" style="background: white;" data-ng-controller="TabsCtrl as tabsCtrl">
+                        <li role="presentation"
+                            ui-sref-active="active"
+                            data-ng-repeat="tab in tabsCtrl.tabs">
+                            <a ui-sref="{{tab.name}}"
+                               data-ng-bind="tab.name"></a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+        <div class="col-md-8"
+             style="margin-bottom: 80px;">
+            <ui-view></ui-view>
+        </div>
+        <!--/span-->
+        <div class="col-md-2">
+            <div class="sidebar-nav-fixed pull-right affix">
+                <div class="well">
+                    <ul class="nav" style="background: white;" data-ng-controller="TabsCtrl as tabsCtrl">
+                        <li role="presentation"
+                            ui-sref-active="active"
+                            data-ng-repeat="contact in tabsCtrl.contacts">
+                            <a style="color: black"
+                               ui-sref="contact({id: $index})">
+                                <div data-ng-if="contact.unread">
+                                    <i><b>{{contact.name}}</b></i>
+                                </div>
+                                <div data-ng-if="!contact.unread">
+                                    {{contact.name}}
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+</div>
 <script src="bundle.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
 <script id="__bs_script__">//<![CDATA[
 document.write("<script async src='http://HOST:3001/browser-sync/browser-sync-client.js?v=2.18.8'><\/script>".replace("HOST", location.hostname));
 //]]></script>
+<style>
+    body {
+        padding-top: 70px;
+    }
+</style>
 </body>
 </html>

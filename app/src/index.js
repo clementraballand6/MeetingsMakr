@@ -3,13 +3,12 @@ require('angular');
 /*******************
  * MODULES LOADING *
  *******************/
-require('angular-route');
-require('./modules/home');
+require('angular-ui-router');
+require('./modules/inbox');
+require('./modules/contact');
+require('./modules/settings');
 
 /****************************
  * REGISTER MAIN APP MODULE *
  ****************************/
-angular.module('app', [
-    'ngRoute',
-    'app.home'
-]);
+require('./modules/app');
