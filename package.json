@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "generate:users": "node srv/generate/usersAndMembers.js",
+    "generate:events": "npm run generate:events_club & npm run generate:events_member",
+    "generate:events_club": "node srv/generate/events_club.js",
+    "generate:events_member": "node srv/generate/events_member.js",
     "live": "npm run serve & npm run watch & npm run bs",
     "serve": "nodemon srv/server.js --ignore app",
     "watch": "watchify app/src/index.js -o app/src/bundle.js -v --debug",
