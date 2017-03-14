@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var generate = require("./generate/usersAndMembers");
 
 
 app.set('port', 3000);

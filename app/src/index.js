@@ -4,9 +4,8 @@ require('angular');
  * MODULES LOADING *
  *******************/
 require('angular-ui-router');
-require('./modules/inbox');
-require('./modules/contact');
 require('./modules/settings');
+require('./modules/home');
 
 /****************************
  * REGISTER MAIN APP MODULE *

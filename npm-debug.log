@@ -7,7 +7,7 @@
 6 silly lifecycle meetingsmakr-app@1.0.0~preserve: no script for preserve, continuing
 7 info lifecycle meetingsmakr-app@1.0.0~serve: meetingsmakr-app@1.0.0
 8 verbose lifecycle meetingsmakr-app@1.0.0~serve: unsafe-perm in lifecycle true
-9 verbose lifecycle meetingsmakr-app@1.0.0~serve: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/dev/IdeaProjects/MeetingsMakr/node_modules/.bin:/usr/local/bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/dev/IdeaProjects/MeetingsMakr/node_modules/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/android-sdk-linux/:/android-sdk-linux/tools:/android-sdk-linux/platform-tools:/android-sdk-linux/:/android-sdk-linux/tools:/android-sdk-linux/platform-tools
+9 verbose lifecycle meetingsmakr-app@1.0.0~serve: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/dev/IdeaProjects/MeetingsMakr/node_modules/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/android-sdk-linux/:/android-sdk-linux/tools:/android-sdk-linux/platform-tools:/android-sdk-linux/:/android-sdk-linux/tools:/android-sdk-linux/platform-tools
 10 verbose lifecycle meetingsmakr-app@1.0.0~serve: CWD: /home/dev/IdeaProjects/MeetingsMakr
 11 silly lifecycle meetingsmakr-app@1.0.0~serve: Args: [ '-c', 'nodemon srv/server.js --ignore app' ]
 12 silly lifecycle meetingsmakr-app@1.0.0~serve: Returned: code: 1  signal: null
