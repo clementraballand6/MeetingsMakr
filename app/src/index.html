@@ -48,7 +48,7 @@
 <body>
 <div class="loader" data-ng-if="$root.showLoader"></div>
 
-<div class="wrapper" ng-cloak>
+<div class="wrapper" data-ng-cloak data-ng-if="!$root.showLoader">
 
     <div data-ng-include="'/modules/app/partials/sidebar.html'"
          data-ng-if="$root.user.isLogged"></div>

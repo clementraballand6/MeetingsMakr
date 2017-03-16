@@ -10,15 +10,26 @@ angular.module('app', [
 ])
     .service('AppService', require('./services/appService'))
     .controller('AppCtrl', require('./controllers/appCtrl'))
-    .controller('TabsCtrl', require('./controllers/tabsCtrl'))
     .factory('Message', require('./factories/message'))
     .factory('Contact', require('./factories/contact'))
+    .constant('APP_CONSTANTS', {
+        API_PATH: "http://localhost:3000/api/"
+    })
     .config(require("./routes"))
-    .run(function ($rootScope) {
+    .run(function ($rootScope, $state) {
+        $rootScope.user = {
+            isLogged: false
+        };
+
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             console.log("changing");
             $rootScope.showLoader = true;
             $rootScope.current = toState;
+            if (toState.name === "login" && $rootScope.user.isLogged) {
+                console.log("gqsdgs");
+                event.preventDefault();
+                $state.go("home");
+            }
         });
 
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
