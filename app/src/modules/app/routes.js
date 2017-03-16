@@ -1,6 +1,12 @@
 module.exports = function ($stateProvider) {
 
     $stateProvider.state({
+        name: 'home',
+        url: '',
+        controller: 'HomeCtrl',
+        controllerAs: 'homeCtrl',
+        templateUrl: 'modules/home/partials/home.html'
+    }).state({
         name: 'inbox',
         url: '/inbox',
         controller: 'InboxCtrl',
@@ -19,11 +25,11 @@ module.exports = function ($stateProvider) {
         },
         template: '<h1>HEY</h1>'
     }).state({
-        name: 'contact',
-        url: '/contact/:id',
-        controller: 'ContactCtrl',
-        controllerAs: 'contactCtrl',
-        templateUrl: 'modules/contact/partials/contact.html'
+        name: 'login',
+        url: '/login',
+        controller: 'AppCtrl',
+        controllerAs: 'appCtrl',
+        templateUrl: 'modules/app/partials/login.html'
     });
 
 };
