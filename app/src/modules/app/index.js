@@ -6,6 +6,7 @@ angular.module('app', [
     'ui.router',
     'app',
     'app.settings',
+    'app.dashboard',
     'app.home'
 ])
     .service('AppService', require('./services/appService'))
@@ -16,9 +17,12 @@ angular.module('app', [
         API_PATH: "http://localhost:3000/api/"
     })
     .config(require("./routes"))
-    .run(function ($rootScope, $state) {
+    .run(function ($rootScope, $state, $window) {
+        var user = JSON.parse($window.localStorage.getItem("user"));
+        console.log(user);
         $rootScope.user = {
-            isLogged: false
+            infos: user,
+            isLogged: user !== null
         };
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {

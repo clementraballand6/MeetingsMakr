@@ -7,14 +7,11 @@ module.exports = function ($stateProvider) {
         controllerAs: 'homeCtrl',
         templateUrl: 'modules/home/partials/home.html'
     }).state({
-        name: 'inbox',
-        url: '/inbox',
-        controller: 'InboxCtrl',
-        controllerAs: 'inboxCtrl',
-        data: {
-            isTab: true
-        },
-        templateUrl: 'modules/inbox/partials/inbox.html'
+        name: 'dashboard',
+        url: '/dashboard',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboardCtrl',
+        templateUrl: 'modules/dashboard/partials/dashboard.html'
     }).state({
         name: 'settings',
         url: '/settings',
