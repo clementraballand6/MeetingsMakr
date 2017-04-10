@@ -1,4 +1,4 @@
-var sql = require('./../mysql');
+var sql = require('./../../mysql');
 var sha1 = require('sha1');
 
 module.exports = function (user, cb) {

@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Mes informations</h4>
+            </div>
+            <div class="content">
+                <form ng-submit="appCtrl.updateUserInfos()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" placeholder="" data-ng-model="$root.userInfos.lastname">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Prénom</label>
+                                <input type="text" class="form-control" placeholder="" data-ng-model="$root.userInfos.firstname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Code postal</label>
+                                <input type="text" class="form-control" placeholder="" data-ng-model="$root.userInfos.postal_code">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" class="form-control" placeholder="" data-ng-model="$root.userInfos.city">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Tel.</label>
+                                <input type="text" class="form-control" placeholder="" data-ng-model="$root.userInfos.phone">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Adresse mail</label>
+                                <input type="text" class="form-control" placeholder="" data-ng-model="$root.userInfos.mail">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Mettre à jour</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

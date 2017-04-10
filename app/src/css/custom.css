@@ -149,3 +149,10 @@
     background-color: #1CA347;
     border-color: #1CA347;
 }
+
+.content-clickable {
+    cursor: pointer;
+}
+.content-clickable:hover {
+    color: rgb(135, 203, 22);
+}

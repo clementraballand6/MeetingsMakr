@@ -7,33 +7,26 @@ angular.module('app', [
     'app',
     'app.settings',
     'app.dashboard',
+    'app.club',
     'app.home'
 ])
     .service('AppService', require('./services/appService'))
     .controller('AppCtrl', require('./controllers/appCtrl'))
-    .factory('Message', require('./factories/message'))
-    .factory('Contact', require('./factories/contact'))
+    .factory('Notif', require('./factories/notif'))
     .constant('APP_CONSTANTS', {
         API_PATH: "http://localhost:3000/api/"
     })
     .config(require("./routes"))
     .run(function ($rootScope, $state, $window) {
-        var user = JSON.parse($window.localStorage.getItem("user"));
-        console.log(user);
-        $rootScope.user = {
-            infos: user,
-            isLogged: user !== null
-        };
+        var mail = JSON.parse($window.localStorage.getItem("mail"));
+        $rootScope.isLogged = mail !== undefined;
+
+        $.notify.defaults({globalPosition: 'top center'});
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             console.log("changing");
             $rootScope.showLoader = true;
             $rootScope.current = toState;
-            if (toState.name === "login" && $rootScope.user.isLogged) {
-                console.log("gqsdgs");
-                event.preventDefault();
-                $state.go("home");
-            }
         });
 
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {

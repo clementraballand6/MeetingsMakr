@@ -30,13 +30,15 @@
                 <li>
                     <button class="btn btn-fill btn-success" style="margin: 10px 3px">Cherche un match</button>
                 </li>
-                <li data-ng-if="$root.user.isLogged">
+                <li data-ng-if="$root.isLogged">
                     <button class="btn btn-fill btn-success" style="margin: 10px 3px">Mon compte</button>
                 </li>
-                <li data-ng-if="$root.user.isLogged">
-                    <button class="btn btn-fill btn-success" style="margin: 10px 3px">Se deconnecter</button>
+                <li data-ng-if="$root.isLogged">
+                    <button class="btn btn-fill btn-success"
+                            data-ng-click="appCtrl.disconnect()"
+                            style="margin: 10px 3px">Se deconnecter</button>
                 </li>
-                <li data-ng-if="!$root.user.isLogged">
+                <li data-ng-if="!$root.isLogged">
                     <button class="btn btn-fill btn-success"
                             style="margin: 10px 3px"
                             ui-sref="login">Se connecter</button>

@@ -3,6 +3,5 @@ module.exports = function (AppService) {
 
     self.clubs = AppService.clubs;
 
-    console.log(self.clubs);
     return self;
 };
