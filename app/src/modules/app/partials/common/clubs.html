@@ -19,7 +19,7 @@
                     <tr data-ng-repeat="club in controller.clubs">
                         <td><i class="fa fa-eye content-clickable"
                                style="font-size: x-large"
-                               data-ng-click="dashboardCtrl.click()"></i></td>
+                               ui-sref="clubDetails({id: club.id})"></i></td>
                         <td data-ng-bind="club.name"></td>
                         <td data-ng-bind="club.city"></td>
                         <td data-ng-bind="club.postal_code"></td>

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Paramètres de l'équipe</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-8">
+                            <h5>Envoyer un mail à chaque nouvel évènement</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn"
+                                    data-ng-click="teamSettingsCtrl.toggleSetting('event.mail')"
+                                    data-ng-class="{ 'btn-success': teamSettingsCtrl.hasSetting('event.mail'),
+                                                     'btn-danger' : !teamSettingsCtrl.hasSetting('event.mail')}">
+                                {{ teamSettingsCtrl.hasSetting('event.mail') ? 'Activé' : 'Desactivé' }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-8">
+                            <h5>Permettre aux joueurs de créer des évènements entre eux</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn"
+                                    data-ng-click="teamSettingsCtrl.toggleSetting('event.member.create')"
+                                    data-ng-class="{ 'btn-success': teamSettingsCtrl.hasSetting('event.member.create'),
+                                                     'btn-danger' : !teamSettingsCtrl.hasSetting('event.member.create')}">
+                                {{ teamSettingsCtrl.hasSetting('event.member.create') ? 'Activé' : 'Desactivé' }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-8">
+                            <h5>Envoyer un sms à chaque nouvel évènement</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn"
+                                    data-ng-click="teamSettingsCtrl.toggleSetting('event.sms')"
+                                    data-ng-class="{ 'btn-success': teamSettingsCtrl.hasSetting('event.sms'),
+                                                     'btn-danger' : !teamSettingsCtrl.hasSetting('event.sms')}">
+                                {{ teamSettingsCtrl.hasSetting('event.sms') ? 'Activé' : 'Desactivé' }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,11 @@
-module.exports = function (AppService) {
+module.exports = function (AppService, App) {
     var self = this;
 
-    self.clubs = AppService.clubs;
+    App.setTitle('Mes clubs');
+
+    AppService.getClubs().then(function (res) {
+        self.clubs = res.data;
+    });
 
     return self;
 };

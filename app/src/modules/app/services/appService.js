@@ -1,4 +1,4 @@
-module.exports = function ($http, APP_CONSTANTS, $rootScope) {
+module.exports = function ($http, APP_CONSTANTS, $rootScope, $window) {
     var self = this;
 
     self.auth = function (credentials) {
@@ -23,11 +23,19 @@ module.exports = function ($http, APP_CONSTANTS, $rootScope) {
         })
     };
 
-    self.storeClubs = function () {
-        $http.get(APP_CONSTANTS.API_PATH + "clubs").then(function (res) {
-            self.clubs = res.data;
-        })
+    self.getClubs = function () {
+        return $http.get(APP_CONSTANTS.API_PATH + "clubs");
     };
+
+    if ($rootScope.isLogged) {
+        console.log("fsdf");
+        self.auth({
+            mail: JSON.parse($window.localStorage.getItem('mail')),
+            password: JSON.parse($window.localStorage.getItem('password'))
+        }).then(function () {
+            self.storeUserInfos();
+        });
+    }
 
     return self;
 };

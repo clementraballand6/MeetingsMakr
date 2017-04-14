@@ -1,0 +1,17 @@
+<div class="header">
+    <h4 class="title">Equipe "<b data-ng-bind="teamCtrl.team.name"></b>"</h4>
+</div>
+<ul class="nav nav-tabs">
+    <li role="presentation" ui-sref-active="active">
+        <a class="content-clickable"
+           ui-sref="team.details({id: teamCtrl.team.id})">Informations</a>
+    </li>
+    <li role="presentation" ui-sref-active="active">
+        <a class="content-clickable"
+           ui-sref="team.members({id: teamCtrl.team.id})">Membres</a>
+    </li>
+    <li role="presentation" ui-sref-active="active">
+        <a class="content-clickable"
+           ui-sref="team.settings({id: teamCtrl.team.id})">Paramètres</a>
+    </li>
+</ul>

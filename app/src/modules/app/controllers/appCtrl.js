@@ -1,7 +1,9 @@
-module.exports = function (AppService, $rootScope, $state, $window, Notif) {
+module.exports = function (AppService, $rootScope, $state, $window, Notif, App) {
     var self = this;
 
     self.credentials = {};
+
+    if ($state.current.name === "editUser") App.setTitle("Mes informations");
 
     self.auth = function (loader) {
         loader ? $rootScope.showLoader = true : '';
@@ -29,14 +31,6 @@ module.exports = function (AppService, $rootScope, $state, $window, Notif) {
             Notif.info("Informations mises à jours.");
         });
     };
-
-    if ($rootScope.isLogged) {
-        AppService.auth({
-            mail: JSON.parse($window.localStorage.getItem('mail')),
-            password: JSON.parse($window.localStorage.getItem('password'))
-        }).then(AppService.storeUserInfos);
-        AppService.storeClubs();
-    }
 
     return self;
 };
