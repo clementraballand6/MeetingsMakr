@@ -29,7 +29,7 @@ CREATE TABLE club(
         name        Varchar (255) NOT NULL ,
         city        Varchar (255) NOT NULL ,
         postal_code Varchar (5) NOT NULL ,
-        id_club    Int NOT NULL ,
+        id_club    Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
 
