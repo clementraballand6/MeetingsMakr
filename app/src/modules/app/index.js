@@ -7,6 +7,7 @@ angular.module('app', [
     'app',
     'app.settings',
     'app.team',
+    'app.player',
     'app.dashboard',
     'app.club',
     'app.home'

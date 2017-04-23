@@ -1,4 +1,4 @@
-module.exports = function (AppService, TeamService, $stateParams, Notif) {
+module.exports = function (AppService, TeamService, $stateParams, Notif, $rootScope) {
     var self = this;
     self.settings = [];
 

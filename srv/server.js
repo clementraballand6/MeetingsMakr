@@ -6,6 +6,7 @@ var express = require('express'),
     club = require('./api/get/club'),
     teamMembers = require('./api/get/teamMembers'),
     team = require('./api/get/team'),
+    player = require('./api/get/player'),
     updateTeam = require('./api/put/team'),
     userInfos = require('./api/get/userInfos'),
     updateUser = require('./api/put/user'),
@@ -60,6 +61,12 @@ app.get('/api/club', function (req, res) {
 
 app.get('/api/team', function (req, res) {
     team(sess, function (results) {
+        res.end(JSON.stringify(results));
+    }, req.query);
+});
+
+app.get('/api/player', function (req, res) {
+    player(sess, function (results) {
         res.end(JSON.stringify(results));
     }, req.query);
 });

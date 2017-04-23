@@ -15,6 +15,8 @@
     <!-- Animation library for notifications   -->
     <link href="./css/animate.min.css" rel="stylesheet"/>
 
+    <link href="./css/css-loader.css" rel="stylesheet"/>
+
     <!--  Light Bootstrap Table core CSS    -->
     <link href="./css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
@@ -46,9 +48,9 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-<div class="loader" data-ng-if="$root.showLoader"></div>
+<div class="loader loader-default" data-ng-class="{'is-active': $root.showLoader}"></div>
 
-<div class="wrapper" data-ng-cloak data-ng-if="!$root.showLoader">
+<div class="wrapper" data-ng-cloak>
 
     <div data-ng-include="'/modules/app/partials/sidebar.html'"
          data-ng-if="$root.isLogged"></div>

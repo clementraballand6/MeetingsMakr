@@ -1,5 +1,8 @@
-module.exports = function (AppService, TeamService, ClubService, $stateParams, $state, Notif) {
+module.exports = function (AppService, TeamService, ClubService, $stateParams, $state, Notif, $rootScope) {
     var self = this;
+    self.show = false;
+    self.new = {};
+
     TeamService.getTeamDetails($stateParams.id).then(function (res) {
         self.team = res.data;
     })
@@ -7,6 +10,17 @@ module.exports = function (AppService, TeamService, ClubService, $stateParams, $
     TeamService.getTeamMembers($stateParams.id).then(function (res) {
         self.members = res.data;
     });
-    // @TODO navbar equipe 'SETTING' 'PLAYERS' 'EVENTS'
+
+    self.remove = function (index) {
+        self.members.splice(index, 1);
+    }
+
+    self.add = function () {
+        self.members.unshift(angular.copy(self.new));
+        self.new = {};
+        self.displayNewMemberForm = false;
+        Notif.success('Nouveau membre ajouté')
+    }
+
     return self;
 };

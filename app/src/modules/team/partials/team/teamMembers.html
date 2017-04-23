@@ -4,10 +4,65 @@
             <div class="header">
                 <h4 class="title">Membres du club</h4>
             </div>
+
+            <div style="padding-left: 15px;">
+                <button class="btn btn-success"
+                        data-ng-click="teamMembersCtrl.displayNewMemberForm = true"
+                        data-ng-if="!teamMembersCtrl.displayNewMemberForm">Ajouter un membre
+                </button>
+            </div>
+
+            <div class="content" data-ng-if="teamMembersCtrl.displayNewMemberForm">
+                <form ng-submit="teamMembersCtrl.add()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" placeholder=""
+                                       required
+                                       data-ng-model="teamMembersCtrl.new.lastname">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Prénom</label>
+                                <input type="text" class="form-control" placeholder=""
+                                       required
+                                       data-ng-model="teamMembersCtrl.new.firstname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Tel.</label>
+                                <input type="text" class="form-control" placeholder=""
+                                       data-ng-model="teamMembersCtrl.new.tel">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Mail</label>
+                                <input type="text" class="form-control" placeholder=""
+                                       data-ng-model="teamMembersCtrl.new.mail">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success btn-fill pull-right">Ajouter</button>
+                    <button class="btn btn-danger btn-fill pull-right"
+                            data-ng-click="teamMembersCtrl.displayNewMemberForm = false"
+                            style="margin-right: 1%;">Annuler</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+
             <div class="content table-responsive table-full-width">
                 <table class="table table-hover table-striped">
                     <thead>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th>Nom</th>
                         <th>Prénom</th>
@@ -16,14 +71,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="team in teamMembersCtrl.members">
-                        <td><i class="fa fa-eye content-clickable"
-                               style="font-size: x-large"
-                               ui-sref="team({id: team.id})"></i></td>
-                        <td data-ng-bind="team.lastname"></td>
-                        <td data-ng-bind="team.firstname"></td>
-                        <td data-ng-bind="team.tel"></td>
-                        <td data-ng-bind="team.mail"></td>
+                    <tr data-ng-repeat="member in teamMembersCtrl.members">
+                        <td style="width: 5%;"><i class="fa fa-eye content-clickable"
+                                                  style="font-size: x-large"
+                                                  ui-sref="player.details({id: member.id, from: teamMembersCtrl.team.id})"></i>
+                        </td>
+                        <td style="width: 15%;">
+                            <i class="pe-7s-delete-user content-clickable"
+                               style="font-size: x-large; color: red;"
+                               data-ng-if="!member.displayDelete"
+                               data-ng-click="member.displayDelete = true"></i>
+                            <button class="btn btn-danger"
+                                    style="padding: 1.5px 10px;"
+                                    data-ng-click="teamMembersCtrl.remove($index)"
+                                    data-ng-if="member.displayDelete">Supprimer
+                            </button>
+                            <button class="btn btn-default"
+                                    style="padding: 1.5px 10px;"
+                                    data-ng-click="member.displayDelete = false"
+                                    data-ng-if="member.displayDelete">Annuler
+                            </button>
+                        </td>
+                        <td data-ng-bind="member.lastname"></td>
+                        <td data-ng-bind="member.firstname"></td>
+                        <td data-ng-bind="member.tel"></td>
+                        <td data-ng-bind="member.mail"></td>
                     </tr>
                     </tbody>
                 </table>

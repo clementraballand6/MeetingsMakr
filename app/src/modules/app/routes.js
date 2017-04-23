@@ -91,6 +91,27 @@ module.exports = function ($stateProvider) {
         controllerAs: 'teamSettingsCtrl',
         templateUrl: 'modules/team/partials/team/teamSettings.html'
     }).state({
+        name: 'player',
+        url: '/player',
+        data: {
+            auth: "logged"
+        },
+        controller: 'PlayerCtrl',
+        controllerAs: 'playerCtrl',
+        templateUrl: 'modules/player/partials/player.html'
+    }).state({
+        name: 'player.details',
+        url: '/:id',
+        params: {
+            from: null
+        },
+        data: {
+            auth: "logged"
+        },
+        controller: 'PlayerCtrl',
+        controllerAs: 'playerCtrl',
+        templateUrl: 'modules/player/partials/playerDetails.html'
+    }).state({
         name: 'login',
         url: '/login',
         data: {

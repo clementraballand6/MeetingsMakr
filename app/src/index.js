@@ -6,6 +6,7 @@ require('angular');
 require('angular-ui-router');
 require('./modules/settings');
 require('./modules/team');
+require('./modules/player');
 require('./modules/dashboard');
 require('./modules/club');
 require('./modules/home');
