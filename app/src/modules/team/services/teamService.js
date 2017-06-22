@@ -9,6 +9,10 @@ module.exports = function (APP_CONSTANTS, $http) {
         return $http.get(APP_CONSTANTS.API_PATH + "team", {params: {id: id}});
     }
 
+    self.getAllClubs = function () {
+        return $http.get(APP_CONSTANTS.API_PATH + "allClubs");
+    }
+
     self.updateInfos = function (t) {
         var team = angular.copy(t);
         team.settings = JSON.stringify(team.settings);

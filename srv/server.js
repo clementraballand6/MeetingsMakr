@@ -3,10 +3,12 @@ var express = require('express'),
     path = require('path'),
     login = require('./api/get/login'),
     clubs = require('./api/get/clubs'),
+    allMeets = require('./api/get/meets'),
     club = require('./api/get/club'),
     teamMembers = require('./api/get/teamMembers'),
     masterClubEvents = require('./api/get/masterClubEvents'),
     clubEvents = require('./api/get/clubEvents'),
+    allClubs = require('./api/get/allClubs'),
     event = require('./api/get/event'),
     team = require('./api/get/team'),
     player = require('./api/get/player'),
@@ -14,6 +16,7 @@ var express = require('express'),
     updateEvent = require('./api/put/event'),
     addMasterClub = require('./api/post/masterClub'),
     addMember = require('./api/post/member'),
+    addEvent = require('./api/post/event'),
     removeClub = require('./api/delete/club'),
     userInfos = require('./api/get/userInfos'),
     updateUser = require('./api/put/user'),
@@ -96,6 +99,18 @@ app.get('/api/clubEvents', function (req, res) {
     }, sess);
 });
 
+app.get('/api/allClubs', function (req, res) {
+    allClubs(req.query, function (results) {
+        res.end(JSON.stringify(results));
+    }, sess);
+});
+
+app.get('/api/meets', function (req, res) {
+    allMeets(req.query, function (results) {
+        res.end(JSON.stringify(results));
+    }, sess);
+});
+
 app.get('/api/event', function (req, res) {
     event(req.query, function (results) {
         res.end(JSON.stringify(results));
@@ -123,6 +138,12 @@ app.put('/api/team', function (req, res) {
 
 app.post('/api/masterClub', function (req, res) {
     addMasterClub(req.body, function (results) {
+        res.end(JSON.stringify(results));
+    }, sess);
+});
+
+app.post('/api/event', function (req, res) {
+    addEvent(req.body, function (results) {
         res.end(JSON.stringify(results));
     }, sess);
 });

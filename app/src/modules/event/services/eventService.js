@@ -9,6 +9,14 @@ module.exports = function (APP_CONSTANTS, $http) {
         return $http.get(APP_CONSTANTS.API_PATH + "clubEvents", {params: {id: id}});
     };
 
+    self.getAllMeets = function () {
+        return $http.get(APP_CONSTANTS.API_PATH + "meets");
+    };
+
+    self.addEvent = function (event) {
+        return $http.post(APP_CONSTANTS.API_PATH + "event", event);
+    };
+
     self.getMasterClubEvents = function (id) {
         return $http.get(APP_CONSTANTS.API_PATH + "masterClubEvents", {params: {id: id}});
     };

@@ -73,6 +73,12 @@ module.exports = function ($stateProvider) {
         controllerAs: 'teamMembersCtrl',
         templateUrl: 'modules/team/partials/team/teamMembers.html'
     }).state({
+        name: 'findTeam',
+        url: '/findTeam',
+        controller: 'FindTeamCtrl',
+        controllerAs: 'findTeamCtrl',
+        templateUrl: 'modules/team/partials/findTeam.html'
+    }).state({
         name: 'team.events',
         url: '/:id/events',
         data: {

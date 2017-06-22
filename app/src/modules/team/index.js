@@ -4,4 +4,5 @@ angular.module('app.team', [])
     .controller('TeamMembersCtrl', require('./controllers/teamMembersCtrl'))
     .controller('TeamEventsCtrl', require('./controllers/teamEventsCtrl'))
     .controller('TeamSettingsCtrl', require('./controllers/teamSettingsCtrl'))
+    .controller('FindTeamCtrl', require('./controllers/findTeamCtrl'))
     .service('TeamService', require('./services/teamService'));
