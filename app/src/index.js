@@ -10,6 +10,8 @@ require('./modules/player');
 require('./modules/dashboard');
 require('./modules/club');
 require('./modules/home');
+require('./modules/event');
+require('./modules/closeEvents');
 
 /****************************
  * REGISTER MAIN APP MODULE *

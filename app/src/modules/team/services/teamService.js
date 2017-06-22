@@ -7,7 +7,7 @@ module.exports = function (APP_CONSTANTS, $http) {
 
     self.getTeamDetails = function (id) {
         return $http.get(APP_CONSTANTS.API_PATH + "team", {params: {id: id}});
-    };
+    }
 
     self.updateInfos = function (t) {
         var team = angular.copy(t);
@@ -15,6 +15,10 @@ module.exports = function (APP_CONSTANTS, $http) {
         console.log(team.settings);
         return $http.put(APP_CONSTANTS.API_PATH + "team", team);
     };
+
+    self.addMember = function (member, club) {
+        return $http.post(APP_CONSTANTS.API_PATH + "member", {member: member, club: club})
+    }
 
     return self;
 };

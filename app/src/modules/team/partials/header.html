@@ -12,6 +12,15 @@
     </li>
     <li role="presentation" ui-sref-active="active">
         <a class="content-clickable"
+           ui-sref="team.events({id: teamCtrl.team.id})">Evènements</a>
+    </li>
+    <li role="presentation" ui-sref-active="active">
+        <a class="content-clickable"
            ui-sref="team.settings({id: teamCtrl.team.id})">Paramètres</a>
+    </li>
+    <li role="presentation">
+        <button class="btn btn-danger btn-fill"
+                data-ng-click="teamCtrl.removeTeam()">Supprimer l'équipe
+        </button>
     </li>
 </ul>

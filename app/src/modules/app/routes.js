@@ -73,6 +73,15 @@ module.exports = function ($stateProvider) {
         controllerAs: 'teamMembersCtrl',
         templateUrl: 'modules/team/partials/team/teamMembers.html'
     }).state({
+        name: 'team.events',
+        url: '/:id/events',
+        data: {
+            auth: "logged"
+        },
+        controller: 'TeamEventsCtrl',
+        controllerAs: 'teamEventsCtrl',
+        templateUrl: 'modules/team/partials/team/teamEvents.html'
+    }).state({
         name: 'team.details',
         url: '/:id/details',
         data: {
@@ -111,6 +120,27 @@ module.exports = function ($stateProvider) {
         controller: 'PlayerCtrl',
         controllerAs: 'playerCtrl',
         templateUrl: 'modules/player/partials/playerDetails.html'
+    }).state({
+        name: 'closeEvents',
+        url: '/closeEvents',
+        data: {
+            auth: "logged"
+        },
+        controller: 'CloseEventsCtrl',
+        controllerAs: 'closeEventsCtrl',
+        templateUrl: 'modules/closeEvents/partials/closeEvents.html'
+    }).state({
+        name: 'event',
+        url: '/event/:id',
+        data: {
+            auth: "logged"
+        },
+        params: {
+            from: null
+        },
+        controller: 'EventCtrl',
+        controllerAs: 'eventCtrl',
+        templateUrl: 'modules/event/partials/event.html'
     }).state({
         name: 'login',
         url: '/login',

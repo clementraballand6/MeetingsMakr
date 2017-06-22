@@ -10,7 +10,9 @@ angular.module('app', [
     'app.player',
     'app.dashboard',
     'app.club',
-    'app.home'
+    'app.home',
+    'app.event',
+    'app.closeEvents'
 ])
     .service('AppService', require('./services/appService'))
     .controller('AppCtrl', require('./controllers/appCtrl'))

@@ -5,5 +5,6 @@ module.exports = {
         max: 5
     },
     nbEventsMember: 20,
-    nbEventsClub: 5
+    nbEventsClub: 5,
+    nbEventsMeets: 20
 };

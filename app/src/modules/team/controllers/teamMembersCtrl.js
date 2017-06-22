@@ -16,10 +16,12 @@ module.exports = function (AppService, TeamService, ClubService, $stateParams, $
     }
 
     self.add = function () {
-        self.members.unshift(angular.copy(self.new));
-        self.new = {};
-        self.displayNewMemberForm = false;
-        Notif.success('Nouveau membre ajouté')
+        TeamService.addMember(self.new, self.team).then(function () {
+            self.members.unshift(angular.copy(self.new));
+            self.new = {};
+            self.displayNewMemberForm = false;
+            Notif.success('Nouveau membre ajouté.');
+        })
     }
 
     return self;

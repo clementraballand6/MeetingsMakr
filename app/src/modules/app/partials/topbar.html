@@ -9,9 +9,9 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<div class="navbar-left" style="margin-top: 15px;">-->
-                <!--<a href="">-->
-                    <!--<img src="./icon.png" height="40px" width="40px">-->
-                <!--</a>-->
+            <!--<a href="">-->
+            <!--<img src="./icon.png" height="40px" width="40px">-->
+            <!--</a>-->
             <!--</div>-->
             <a class="navbar-brand" href="#" style="color: white">
                 <p>MeetingsMakr</p>
@@ -23,6 +23,23 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <p class="hidden-lg hidden-md">Dashboard</p>
                     </a>
+                </li>
+                <li class="dropdown"
+                    data-ng-init="openNotif = false"
+                    data-ng-class="{ 'open' : openNotif }">
+                    <a href="" class="dropdown-toggle" data-ng-click="openNotif = !openNotif" data-toggle="dropdown"
+                       aria-expanded="false">
+                        <i class="fa fa-globe"></i>
+                        <b class="caret"></b>
+                        <span class="notification">5</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Notification 1</a></li>
+                        <li><a href="#">Notification 2</a></li>
+                        <li><a href="#">Notification 3</a></li>
+                        <li><a href="#">Notification 4</a></li>
+                        <li><a href="#">Another notification</a></li>
+                    </ul>
                 </li>
             </ul>
 
@@ -36,12 +53,14 @@
                 <li data-ng-if="$root.isLogged">
                     <button class="btn btn-fill btn-success"
                             data-ng-click="appCtrl.disconnect()"
-                            style="margin: 10px 3px">Se deconnecter</button>
+                            style="margin: 10px 3px">Se deconnecter
+                    </button>
                 </li>
                 <li data-ng-if="!$root.isLogged">
                     <button class="btn btn-fill btn-success"
                             style="margin: 10px 3px"
-                            ui-sref="login">Se connecter</button>
+                            ui-sref="login">Se connecter
+                    </button>
                 </li>
                 <li class="separator hidden-lg hidden-md"></li>
             </ul>

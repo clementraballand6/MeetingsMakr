@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Evènements du club</h4>
+                <div style="padding-left: 15px;">
+                    <button class="btn btn-success"
+                            data-ng-click="teamEventsCtrl.displayNewEventForm = true"
+                            data-ng-if="!teamEventsCtrl.displayNewEventForm">Ajouter un évènement
+                    </button>
+                </div>
+
+                <div class="content" data-ng-if="teamEventsCtrl.displayNewEventForm">
+                    <form ng-submit="teamEventsCtrl.add()">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Type d'évènement</label>
+                                    <select class="form-control" name="type" data-ng-disabled="eventCtrl.event.score.length">
+                                        <option value="1" data-ng-selected="{{ eventCtrl.event.type === 1 }}">Match</option>
+                                        <option value="0" data-ng-selected="{{ eventCtrl.event.type === 0 }}">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Date de début</label>
+                                    <input type="datetime-local" class="form-control" data-ng-disabled="eventCtrl.event.score.length" placeholder=""
+                                           data-ng-model="eventCtrl.event.start">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Date de fin</label>
+                                    <input type="datetime-local" class="form-control" placeholder=""
+                                           data-ng-disabled="eventCtrl.event.score.length"
+                                           data-ng-model="eventCtrl.event.end">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Adresse</label>
+                                    <input type="text" class="form-control" placeholder=""
+                                           data-ng-disabled="eventCtrl.event.score.length"
+                                           data-ng-model="eventCtrl.event.location">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Ville</label>
+                                    <input type="text" class="form-control" placeholder=""
+                                           data-ng-disabled="eventCtrl.event.score.length"
+                                           data-ng-model="eventCtrl.event.city">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Commentaire</label>
+                                    <input type="text" class="form-control" placeholder=""
+                                           data-ng-disabled="eventCtrl.event.score.length"
+                                           data-ng-model="eventCtrl.event.detail">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-success btn-fill pull-right">Ajouter</button>
+                        <button class="btn btn-danger btn-fill pull-right"
+                                data-ng-click="teamEventsCtrl.displayNewEventForm = false"
+                                style="margin-right: 1%;">Annuler</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Type d'évènement</th>
+                        <th>Début</th>
+                        <th>Fin</th>
+                        <th>Lieu</th>
+                        <th>Ville</th>
+                        <th>Commentaire</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="event in teamEventsCtrl.events">
+                        <td style="width: 5%;"><i class="fa fa-eye content-clickable"
+                                                  style="font-size: x-large"
+                                                  ui-sref="event({id: event.id_event, from: teamEventsCtrl.clubId})"></i>
+                        </td>
+                        <td data-ng-if="event.type === 1"><p style="color: red">Match</p></td>
+                        <td data-ng-if="event.type !== 1"><p style="color: blue">Autre</p></td>
+                        <td>{{ teamEventsCtrl.formatDate(event.start) }}</td>
+                        <td>{{ teamEventsCtrl.formatDate(event.end) }}</td>
+                        <td data-ng-bind="event.location"></td>
+                        <td data-ng-bind="event.city"></td>
+                        <td data-ng-bind="event.detail || 'Pas de commentaire'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
